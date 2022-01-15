@@ -184,8 +184,8 @@ github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9Y
 github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
 github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
 github.com/jmespath/go-jmespath/internal/testify v1.5.1/go.mod h1:L3OGu8Wl2/fWfCI6z80xFu9LTZmf1ZRjMHUOPmWr69U=
-github.com/josephspurrier/ambient v0.0.0-20220108123505-d4fa90f63352 h1:xBpZXhApDBJSeU5421s6vo1X9+k4jzUi/5sYlHOWfM8=
-github.com/josephspurrier/ambient v0.0.0-20220108123505-d4fa90f63352/go.mod h1:AVZdhMKSvotV1cDPIsAmaLOrED5xglXgORFVo9QTGg8=
+github.com/josephspurrier/ambient v0.0.0-20220115183957-3984933aae19 h1:56kCNGU9Jwrfs4AdHBHHTsTB2Zdwjv1u8WEx4SDua3I=
+github.com/josephspurrier/ambient v0.0.0-20220115183957-3984933aae19/go.mod h1:AVZdhMKSvotV1cDPIsAmaLOrED5xglXgORFVo9QTGg8=
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
 github.com/jstemmer/go-junit-report v0.9.1 h1:6QPYqodiu3GuPL+7mfx+NwDdp2eTkp9IfEUpgAwUN0o=
 github.com/jstemmer/go-junit-report v0.9.1/go.mod h1:Brl9GWCQeLvo8nXZwPNNblvFj/XSXhF0NWZEnDohbsk=
