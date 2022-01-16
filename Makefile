@@ -2,7 +2,6 @@
 # Execute commands like this:
 # * make
 # * make storage
-# * make run
 
 # Load the environment variables.
 include .env
@@ -18,7 +17,9 @@ default: run
 privatekey:
 	@echo Generating private key for encrypting sessions.
 	@echo You can paste private key this into your .env file:
-	@go run plugin/sessionmanager/scssession/cmd/privatekey/main.go
+#	@go run plugin/sessionmanager/scssession/cmd/privatekey/main.go
+	@GOBIN=$(shell pwd)/bin go install github.com/josephspurrier/ambient/plugin/sessionmanager/scssession/cmd/privatekey@latest
+	@./bin/privatekey
 
 # Save the ARGS.
 # https://stackoverflow.com/a/14061796
@@ -31,7 +32,9 @@ endif
 passhash:
 	@echo Generating password hash.
 	@echo You can paste private key this into your .env file:
-	@go run plugin/generic/bearblog/cmd/passhash/main.go ${ARGS}
+#	@go run plugin/generic/bearblog/cmd/passhash/main.go ${ARGS}
+	@GOBIN=$(shell pwd)/bin go install github.com/josephspurrier/ambient/plugin/generic/bearblog/cmd/passhash@latest
+	@./bin/passhash  ${ARGS}
 
 .PHONY: storage
 storage:
@@ -43,10 +46,6 @@ storage:
 run:
 	@echo Starting local server.
 	go run cmd/myapp/main.go
-
-.PHONY: amb
-amb:
-	go run cmd/amb/main.go
 
 ################################################################################
 # Deploy app to Google Cloud
