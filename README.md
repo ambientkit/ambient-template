@@ -45,7 +45,7 @@ AMB_PASSWORD_HASH=
 ```
 
 - To create the session and site files in the storage folder, run: `make storage`
-- To start the webserver on port 8080, run: `make`
+- To start the webserver on port 8080, run: `make run-env`
 
 The login page is located at: http://localhost:8080/login.
 

@@ -24,8 +24,8 @@ func init() {
 }
 
 func main() {
-	// Load the .env file if running in local dev mode.
-	if envdetect.RunningLocalDev() {
+	// Load the .env file if set to load the file.
+	if envdetect.LoadDotEnv() {
 		err := godotenv.Load()
 		if err != nil {
 			stdlog.Fatalf("app: error loading .env file: %v\n", err.Error())

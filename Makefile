@@ -1,14 +1,14 @@
 # This Makefile is an easy way to run common operations.
 # Execute commands like this:
 # * make
-# * make run-prod
+# * make run-env
 # * make storage
 
 # Load the environment variables.
 include .env
 
 .PHONY: default
-default: run-dev
+default: run
 
 ################################################################################
 # Setup app
@@ -43,13 +43,13 @@ storage:
 	cp storage/initial/session.bin storage/session.bin
 	cp storage/initial/site.bin storage/site.bin
 
-.PHONY: run-dev
-run-dev:
+.PHONY: run-env
+run-env:
 	@echo Starting local server.
-	AMB_LOCAL=true go run cmd/myapp/main.go
+	AMB_DOTENV=true go run cmd/myapp/main.go
 
-.PHONY: run-prod
-run-prod:
+.PHONY: run
+run:
 	@echo Starting local server.
 	go run cmd/myapp/main.go
 
