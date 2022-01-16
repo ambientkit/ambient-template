@@ -44,6 +44,7 @@ AMB_PASSWORD_HASH=
 # AMB_URL_PREFIX=/api
 ```
 
+- To download the Go dependencies, run: `go mod download`
 - To create the session and site files in the storage folder, run: `make storage`
 - To start the webserver on port 8080, run: `make run-env`
 
