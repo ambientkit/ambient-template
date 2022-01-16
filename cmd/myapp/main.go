@@ -4,10 +4,12 @@ import (
 	stdlog "log"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/josephspurrier/ambient"
 	"github.com/josephspurrier/ambient/cmd/myapp/app"
 	"github.com/josephspurrier/ambient/lib/aesdata"
 	"github.com/josephspurrier/ambient/lib/cloudstorage"
+	"github.com/josephspurrier/ambient/lib/envdetect"
 	"github.com/josephspurrier/ambient/plugin/logger/zaplogger"
 )
 
@@ -22,6 +24,14 @@ func init() {
 }
 
 func main() {
+	// Load the .env file if running in local dev mode.
+	if envdetect.RunningLocalDev() {
+		err := godotenv.Load()
+		if err != nil {
+			stdlog.Fatalf("app: error loading .env file: %v\n", err.Error())
+		}
+	}
+
 	// Get the environment variables.
 	secretKey := os.Getenv("AMB_SESSION_KEY")
 	if len(secretKey) == 0 {
