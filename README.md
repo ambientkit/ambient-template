@@ -16,8 +16,7 @@ Use the [Plugin Development Guide](PLUGIN.md) to build your own plugins.
 
 To test out the sample web app:
 
-- Build the Ambient interactive CLI (amb) to the current folder: `GOBIN=$(pwd) go install github.com/josephspurrier/ambient/cmd/amb@latest`
-  - Update permissions on the app: `chmod +x amb`
+- Build the Ambient interactive CLI (amb) in the current folder: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/josephspurrier/ambient/main/bash/install.sh)"`
   - Run the tool: `./amb`
   - Type this into the tool and hit enter to clone the ambient template: `createapp`
   - You can now exit by typing `exit` or hitting Ctrl+D.
