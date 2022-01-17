@@ -20,9 +20,9 @@ To test out the sample web app:
   - Update permissions on the app: `chmod +x amb`
   - Run the tool: `./amb`
   - Type this into the tool and hit enter to clone the ambient template: `createapp`
-  - You can now exit by typing `exit` or hitting Ctrl+c.
+  - You can now exit by typing `exit` or hitting Ctrl+D.
   - You can alternatively clone the repository: `git clone git@github.com:josephspurrier/ambient-template.git`
-- Create a new file called `.env` in the root of the project folder with this content:
+- Create a new file called `.env` in the root of the project folder created above with this content:
 
 ```bash
 # App version.
@@ -49,9 +49,11 @@ AMB_PASSWORD_HASH=
 # AMB_URL_PREFIX=/api
 ```
 
-- To download the Go dependencies, run: `go mod download`
-- To create the session and site files in the storage folder, run: `make storage`
-- To start the webserver on port 8080, run: `make run-env`
+- Download the Go dependencies: `go mod download`
+- Generate a new private key: `make privatekey`
+- Generate a new password hash (replace with your password): `make passhash passwordhere`
+- Create the session and site files in the storage folder: `make storage`
+- Start the webserver on port 8080: `make run-env`
 
 The login page is located at: http://localhost:8080/login.
 
