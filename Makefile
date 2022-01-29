@@ -18,7 +18,7 @@ default: run
 privatekey:
 	@echo Generating private key for encrypting sessions.
 	@echo You can paste private key this into your .env file:
-	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/ambient/plugin/sessionmanager/scssession/cmd/privatekey@latest
+	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/ambient/plugin/sessionmanager/scssession/cmd/privatekey
 	@./bin/privatekey
 
 # Save the ARGS.
@@ -32,7 +32,7 @@ endif
 passhash:
 	@echo Generating password hash.
 	@echo You can paste private key this into your .env file:
-	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/ambient/plugin/generic/bearblog/cmd/passhash@latest
+	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/ambient/plugin/generic/bearblog/cmd/passhash
 	@./bin/passhash  ${ARGS}
 
 .PHONY: storage
