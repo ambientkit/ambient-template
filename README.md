@@ -1,12 +1,12 @@
 # Sample App using Ambient
 
-This repository contains a sample app to demonstrate how to use the [Ambient](https://github.com/josephspurrier/ambient) pluggable web framework.
+This repository contains a sample app to demonstrate how to use the [Ambient](https://github.com/ambientkit/ambient) pluggable web framework.
 
 ### What is it?
 
 Ambient is a framework in Go for building web apps using plugins. You can use the plugins already included to stand up a blog just like the [Bear Blog](https://bearblog.dev/) or create your own plugins to build your own web app. Plugins can be enabled/disabled while the app is running which means routes as well as middleware can also modified without restarting the app. Plugins must be granted permissions above being enabled which provides you with better control over your web app.
 
-You can read why the framework was created [here](https://github.com/josephspurrier/ambient).
+You can read why the framework was created [here](https://github.com/ambientkit/ambient).
 
 Use the [Deployment Guide](DEPLOYMENT.md) to deploy serverless on Google Cloud (Cloud Run), AWS (App Runner), or Azure (Functions).
 
@@ -16,11 +16,11 @@ Use the [Plugin Development Guide](PLUGIN.md) to build your own plugins.
 
 To test out the sample web app:
 
-- Build the Ambient interactive CLI (amb) in the current folder: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/josephspurrier/ambient/main/bash/install.sh)"`
+- Build the Ambient interactive CLI (amb) in the current folder: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ambientkit/ambient/main/bash/install.sh)"`
   - Run the tool: `./amb`
   - Type this into the tool and hit enter to clone the ambient template: `createapp`
   - You can now exit by typing `exit` or hitting Ctrl+D.
-  - You can alternatively clone the repository: `git clone git@github.com:josephspurrier/ambient-template.git`
+  - You can alternatively clone the repository: `git clone git@github.com:ambientkit/ambient-template.git`
 - Create a new file called `.env` in the root of the project folder created above with this content:
 
 ```bash

@@ -28,7 +28,7 @@ To create the smallest package that can be used as a plugin, you can paste this 
 package mvp
 
 import (
-	"github.com/josephspurrier/ambient"
+	"github.com/ambientkit/ambient"
 )
 
 // Plugin represents an Ambient plugin.
