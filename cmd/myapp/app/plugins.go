@@ -25,6 +25,7 @@ import (
 	"github.com/ambientkit/ambient/plugin/generic/stackedit"
 	"github.com/ambientkit/ambient/plugin/generic/styles"
 	"github.com/ambientkit/ambient/plugin/generic/viewport"
+	"github.com/ambientkit/ambient/plugin/middleware/cors"
 	"github.com/ambientkit/ambient/plugin/middleware/etagcache"
 	"github.com/ambientkit/ambient/plugin/middleware/gzipresponse"
 	"github.com/ambientkit/ambient/plugin/middleware/healthcheck"
@@ -103,7 +104,8 @@ func Plugins() *ambient.PluginLoader {
 			// Middleware - executes bottom to top.
 			notrailingslash.New(), // Redirect all requests with a trailing slash.
 			uptimerobotok.New(),   // Provide 200 on HEAD /.
-			healthcheck.New(),     // Provide 200 on /healthcheck.
+			healthcheck.New(),     // Provide 200 on /api/healthcheck.
+			cors.New(),            // Enable CORS on /api/.
 			securedashboard.New(), // Secure all /dashboard routes.
 			redirecttourl.New(),   // Redirect to production URL.
 			etagcache.New(),       // Cache using Etag.
