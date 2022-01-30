@@ -26,7 +26,7 @@ privatekey:
 	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/plugin/sessionmanager/scssession/cmd/privatekey
 	@./bin/privatekey
 
-# Save the ARGS.
+# Pass in ARGS.
 # https://stackoverflow.com/a/14061796
 ifeq (passhash,$(firstword $(MAKECMDGOALS)))
   ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -85,10 +85,10 @@ run:
 # Update Go dependencies.
 .PHONY: update
 update:
-	 go get -u -f -d ./...
-	 go mod tidy
+	go get -u -f -d ./...
+	go mod tidy
 
-# Save the ARGS.
+# Pass in ARGS.
 # https://stackoverflow.com/a/14061796
 ifeq (update-ambient,$(firstword $(MAKECMDGOALS)))
   ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -98,10 +98,10 @@ endif
 # Update Ambient dependency.
 .PHONY: update-ambient
 update-ambient:
-	 go get -u github.com/ambientkit/ambient@${ARGS}
-	 go mod tidy
+	go get -u github.com/ambientkit/ambient@${ARGS}
+	go mod tidy
 
-# Save the ARGS.
+# Pass in ARGS.
 # https://stackoverflow.com/a/14061796
 ifeq (update-plugin,$(firstword $(MAKECMDGOALS)))
   ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -111,8 +111,8 @@ endif
 # Update Ambient plugin dependency.
 .PHONY: update-plugin
 update-plugin:
-	 go get -u github.com/ambientkit/plugin@${ARGS}
-	 go mod tidy
+	go get -u github.com/ambientkit/plugin@${ARGS}
+	go mod tidy
 
 # Install swagger to local bin folder to allow generating a Swagger spec from code.
 .PHONY: swagger-install
@@ -129,17 +129,17 @@ swagger:
 # Serve the swagger spec.
 .PHONY: swagger-serve
 swagger-serve:
-	 ./bin/swagger serve -F swagger swagger.json
+	./bin/swagger serve -F swagger swagger.json
 
 # Install air to local bin folder to allow live rebuilding so you can make code changes quickly.
 .PHONY: air-install
 air-install:
-	 curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
+	curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
 
 # Run air.
 .PHONY: air
 air:
-	 ./bin/air
+	./bin/air
 
 ################################################################################
 # Deploy app to Google Cloud
