@@ -6,11 +6,11 @@ This repository contains a sample app to demonstrate how to use the [Ambient](ht
 
 Ambient is a framework in Go for building web apps using plugins. You can use the plugins already included to stand up a blog just like the [Bear Blog](https://bearblog.dev/) or create your own plugins to build your own web app. Plugins can be enabled/disabled while the app is running which means routes as well as middleware can also modified without restarting the app. Plugins must be granted permissions above being enabled which provides you with better control over your web app.
 
-You can read why the framework was created [here](https://github.com/ambientkit/ambient).
+You can read why the Ambient framework was created [here](https://github.com/ambientkit/ambient#what-is-it).
 
 Use the [Deployment Guide](DEPLOYMENT.md) to deploy serverless on Google Cloud (Cloud Run), AWS (App Runner), or Azure (Functions).
 
-Use the [Plugin Development Guide](PLUGIN.md) to build your own plugins.
+Use the [Plugin Development Guide](https://github.com/ambientkit/plugin/blob/main/README.md) to build your own plugins.
 
 ## Quickstart on Local
 
