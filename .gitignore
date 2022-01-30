@@ -21,7 +21,7 @@ bin/
 node_modules/
 .azure/
 .bash_history
-.env
+/.env
 .envrc
 package-lock.json
 /deploy/azure/ambient
