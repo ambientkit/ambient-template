@@ -5,7 +5,7 @@ go 1.16
 require (
 	cloud.google.com/go/compute v1.1.0 // indirect
 	cloud.google.com/go/storage v1.19.0 // indirect
-	github.com/ambientkit/ambient v0.0.0-20220129173459-ce6062b8e9db
+	github.com/ambientkit/ambient v0.0.0-20220130051600-5c2e76935e8a
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.9.1 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/uuid v1.3.0 // indirect

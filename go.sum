@@ -75,8 +75,8 @@ github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/alexedwards/scs/v2 v2.5.0 h1:zgxOfNFmiJyXG7UPIuw1g2b9LWBeRLh3PjfB9BDmfL4=
 github.com/alexedwards/scs/v2 v2.5.0/go.mod h1:ToaROZxyKukJKT/xLcVQAChi5k6+Pn1Gvmdl7h3RRj8=
-github.com/ambientkit/ambient v0.0.0-20220129173459-ce6062b8e9db h1:9nuc+VQdUszO3QzG00S+zO8QJQH2FABzYIVwJimpJTE=
-github.com/ambientkit/ambient v0.0.0-20220129173459-ce6062b8e9db/go.mod h1:KXGEWlOdMIoqq0Kvqhj2N1SypWuFkRVMk/KzouGlo3g=
+github.com/ambientkit/ambient v0.0.0-20220130051600-5c2e76935e8a h1:ZNrXwEcLtwNRfwEBx0jnKp05BxRefyAZM2B7vNWT9Jg=
+github.com/ambientkit/ambient v0.0.0-20220130051600-5c2e76935e8a/go.mod h1:KXGEWlOdMIoqq0Kvqhj2N1SypWuFkRVMk/KzouGlo3g=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/aws/aws-sdk-go-v2 v1.13.0 h1:1XIXAfxsEmbhbj5ry3D3vX+6ZcUYvIqSm4CWWEuGZCA=
 github.com/aws/aws-sdk-go-v2 v1.13.0/go.mod h1:L6+ZpqHaLbAaxsqV0L4cvxZY7QupWJB4fhkf8LXvC7w=

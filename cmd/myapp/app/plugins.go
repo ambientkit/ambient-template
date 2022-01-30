@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/ambientkit/ambient"
-	"github.com/ambientkit/ambient/cmd/myapp/app/draft/hello"
-	"github.com/ambientkit/ambient/cmd/myapp/app/draft/navigation"
+	"github.com/ambientkit/ambient-template/cmd/myapp/app/draft/hello"
+	"github.com/ambientkit/ambient-template/cmd/myapp/app/draft/navigation"
 	"github.com/ambientkit/ambient/plugin/generic/author"
 	"github.com/ambientkit/ambient/plugin/generic/bearblog"
 	"github.com/ambientkit/ambient/plugin/generic/bearcss"
@@ -27,6 +27,7 @@ import (
 	"github.com/ambientkit/ambient/plugin/generic/viewport"
 	"github.com/ambientkit/ambient/plugin/middleware/etagcache"
 	"github.com/ambientkit/ambient/plugin/middleware/gzipresponse"
+	"github.com/ambientkit/ambient/plugin/middleware/healthcheck"
 	"github.com/ambientkit/ambient/plugin/middleware/logrequest"
 	"github.com/ambientkit/ambient/plugin/middleware/notrailingslash"
 	"github.com/ambientkit/ambient/plugin/middleware/redirecttourl"
@@ -102,6 +103,7 @@ func Plugins() *ambient.PluginLoader {
 			// Middleware - executes bottom to top.
 			notrailingslash.New(), // Redirect all requests with a trailing slash.
 			uptimerobotok.New(),   // Provide 200 on HEAD /.
+			healthcheck.New(),     // Provide 200 on /healthcheck.
 			securedashboard.New(), // Secure all /dashboard routes.
 			redirecttourl.New(),   // Redirect to production URL.
 			etagcache.New(),       // Cache using Etag.

@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/ambientkit/ambient"
-	"github.com/ambientkit/ambient/cmd/myapp/app/extend/plugin/hello"
+	"github.com/ambientkit/ambient-template/cmd/myapp/app/extend/plugin/hello"
 )
 
 // PluginLoaderExtended -

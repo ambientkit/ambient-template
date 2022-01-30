@@ -88,6 +88,12 @@ update:
 	 go get -u -f -d ./...
 	 go mod tidy
 
+# Update Ambient dependency.
+.PHONY: update-ambient
+update-ambient:
+	 go get -u github.com/ambientkit/ambient
+	 go mod tidy
+
 # Install swagger to local bin folder to allow generating a Swagger spec from code.
 .PHONY: swagger-install
 swagger-install:
