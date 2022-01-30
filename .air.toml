@@ -11,7 +11,7 @@ cmd = "go build -o ./tmp/main cmd/myapp/main.go"
 # Binary file yields from `cmd`.
 bin = "tmp/main"
 # Customize binary with any arguments.
-full_bin = "./tmp/main"
+full_bin = "AMB_DOTENV=true ./tmp/main"
 # Watch these filename extensions.
 include_ext = ["go", "tmpl", "css", "js"]
 # Ignore these filename extensions or directories.

@@ -97,18 +97,23 @@ swagger-install:
 # Generate swagger spec and replace with correct version.
 .PHONY: swagger
 swagger:
-	swagger generate spec -o swagger.json cmd/app/main.go
+	./bin/swagger generate spec -o swagger.json cmd/myapp/main.go
 	sed "s/VERSIONPLACEHOLDER/${shell cat VERSION.md}/g" swagger.json > tmp.json && mv tmp.json swagger.json
 
 # Serve the swagger spec.
 .PHONY: swagger-serve
 swagger-serve:
-	 swagger serve -F swagger swagger.json
+	 ./bin/swagger serve -F swagger swagger.json
 
 # Install air to local bin folder to allow live rebuilding so you can make code changes quickly.
 .PHONY: air-install
 air-install:
 	 curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
+
+# Run air.
+.PHONY: air
+air:
+	 ./bin/air
 
 ################################################################################
 # Deploy app to Google Cloud
