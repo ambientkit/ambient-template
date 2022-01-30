@@ -1,0 +1,82 @@
+// Use this to generate snippets easily: https://snippet-generator.app/
+// For each of the snippets below, you can start typing the prefix and then
+// press Tab or Enter to generate the code. Then use Tab to move through the
+// placeholders.
+{
+    // *************************************************************************
+    // Go
+    // *************************************************************************
+    "Init Func": {
+        "prefix": "init",
+        "scope": "go",
+        "body": [
+            "func init() {",
+            "// Verbose logging with file name and line number for the standard logger.",
+            "log.SetFlags(log.Lshortfile)",
+            "}"
+        ],
+        "description": "init func with verbose logging with file name and line number."
+    },
+    "Web Server": {
+        "prefix": "web",
+        "scope": "go",
+        "body": [
+            "port := os.Getenv(\"PORT\")",
+            "if port == \"\" {",
+            "port = \"8080\"",
+            "}",
+            "",
+            "http.HandleFunc(\"/\", func(w http.ResponseWriter, r *http.Request) {",
+            "fmt.Fprint(w, \"hello world\")$1",
+            "})",
+            "",
+            "log.Println(\"listening on\", port)",
+            "log.Fatal(http.ListenAndServe(\":\"+port, nil))"
+        ],
+        "description": "Standard web server listener and default handler."
+    },
+    "Test File": {
+        "prefix": "test",
+        "scope": "go",
+        "body": [
+            "package $1_test",
+            "",
+            "import (",
+            "\"testing\"",
+            "",
+            "\"github.com/stretchr/testify/assert\"",
+            ")",
+            "",
+            "func Test$2(t *testing.T) {",
+            "assert.True(t, true)$3",
+            "}"
+        ],
+        "description": "Test file with a test function."
+    },
+    // *************************************************************************
+    // Makefile
+    // *************************************************************************
+    "Make Step": {
+        "prefix": "step",
+        "scope": "makefile",
+        "body": [
+            "# $1",
+            ".PHONY: $2",
+            "$2:",
+            "\t @echo ${VAR} $(shell cat VERSION.md)"
+        ],
+        "description": "Makefile step."
+    },
+    // *************************************************************************
+    // envrc
+    // *************************************************************************
+    "Envrc Path": {
+        "prefix": "path",
+        "scope": "shellscript",
+        "body": [
+            "# Add local bin and node modules folder to PATH.",
+            "export PATH=$$PATH:$(pwd)/bin:$(pwd)/node_modules/.bin$1"
+        ],
+        "description": "Path including bin and node_modules."
+    }
+}

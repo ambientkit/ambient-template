@@ -14,45 +14,42 @@ Use the [Plugin Development Guide](PLUGIN.md) to build your own plugins.
 
 ## Quickstart on Local
 
-To test out the sample web app:
-
-- Build the Ambient interactive CLI (amb) in the current folder: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ambientkit/ambient/main/bash/install.sh)"`
-  - Run the tool: `./amb`
-  - Type this into the tool and hit enter to clone the ambient template: `createapp`
-  - You can now exit by typing `exit` or hitting Ctrl+D.
-  - You can alternatively clone the repository: `git clone git@github.com:ambientkit/ambient-template.git`
-- Create a new file called `.env` in the root of the project folder created above with this content:
+To test out the sample web app, you can run these commands:
 
 ```bash
-# App version.
-AMB_APP_VERSION=1.0
-# Set this to any value to allow you to do testing locally without cloud access.
-AMB_LOCAL=true
-# Optional: Enable the Dev Console that amb connects to. Default is: false
-AMB_DEVCONSOLE_ENABLE=true
-# Optional: Set the URL for the Dev Console that amb connects to. Default is: http://localhost
-# AMB_DEVCONSOLE_URL=http://localhost
-# Optional: Set the port for the Dev Console that amb connects to. Default is: 8081
-# AMB_DEVCONSOLE_PORT=8081
-# Session key to encrypt the cookie store. Generate with: make privatekey
-AMB_SESSION_KEY=
-# Password hash that is base64 encoded. Generate with: make passhash passwordhere
-AMB_PASSWORD_HASH=
+# Build the Ambient interactive CLI (amb) in the current folder.
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ambientkit/ambient/main/bash/install.sh)"
 
-# Optional: set the web server port.
-# PORT=8080
-# Optional: set the time zone from here:
-# https://golang.org/src/time/zoneinfo_abbrs_windows.go
-# AMB_TIMEZONE=America/New_York
-# Optional: set the URL prefix if behind a proxy.
-# AMB_URL_PREFIX=/api
+# Run the app.
+./amb
+
+# Clone the ambient template by typing this command and pressing Enter.
+createapp
+
+# Exit by typing `exit` or pressing Ctrl+D.
+exit
+
+# Change to the new project folder.
+cd ambapp
+
+# Create the .env file.
+make env
+
+# Download the Go dependencies.
+go mod download
+
+# Generate a new private key.
+make privatekey
+
+# Generate a new password hash (replace with your password).
+make passhash passwordhere
+
+# Create the session and site files in the storage folder.
+make storage
+
+# Start the webserver on port 8080 (local development with no Docker).
+make run-env
 ```
-
-- Download the Go dependencies: `go mod download`
-- Generate a new private key: `make privatekey`
-- Generate a new password hash (replace with your password): `make passhash passwordhere`
-- Create the session and site files in the storage folder: `make storage`
-- Start the webserver on port 8080: `make run-env`
 
 The login page is located at: http://localhost:8080/login.
 
@@ -63,7 +60,32 @@ To login, you'll need:
 
 Once you are logged in, you should see a new menu option call `Plugins`. From this screen, you'll be able to use the Plugin Manager to make changes to state, permissions, and settings for all plugins.
 
-### Local Development Flags
+## Production Deployment
+
+To test out the sample app in Docker, you can run these commands:
+
+```bash
+# Build the Docker container.
+make build
+
+# Test running the Docker container.
+make run
+```
+
+## Development Workflow
+
+If you would like to make changes to the code that rebuilds automatically, it's recommended to use [`air`](https://github.com/cosmtrek/air) to help streamline your workflow.
+
+```bash
+# Install air to local bin folder.
+make air-install
+
+# Start air to monitor code changes. The web app should be available at:
+# http://localhost:8080
+air
+```
+
+## Local Development Flags
 
 You can set the web server `PORT` to values other than `8080`.
 
@@ -78,7 +100,7 @@ When `AMB_TIMEZONE` is set to a timezone like `America/New_York`, the app will u
 
 When `AMB_URL_PREFIX` is set to a path like `/api`, the app will serve requests from `/api/...`. This is helpful if you are running behind a proxy or are hosting multiple websites from a single URL.
 
-### App Settings
+## App Settings
 
 In the main.go file, you can modify your log level with `SetLogLevel()`:
 
@@ -102,20 +124,4 @@ You can disable template escaping with `SetEscapeTemplates()`:
 ```go
 ambientApp, err := ambient.NewApp(...)
 ambientApp.SetEscapeTemplates(false)
-```
-
-## Development Workflow
-
-If you would like to make changes to the code with hot reloading capabilities, I recommend [`air`](https://github.com/cosmtrek/air) to help streamline your workflow.
-
-```bash
-# Install air to allow hot reloading so you can make changes quickly.
-curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
-```
-
-You can then use this command to start the web server and monitor for changes:
-
-```bash
-# Start hot reload. The web app should be available at: http://localhost:8080
-air
 ```

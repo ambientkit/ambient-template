@@ -1,0 +1,15 @@
+{
+    // Define the files types for known files.
+    "files.associations": {
+        ".dockerignore": "ignore",
+    },
+    // Use the built-in formatter for files like JSON.
+    "editor.formatOnSave": true,
+    // Add newlines to the end of JSON files to align with how package.json behaves when using `npm install`.
+    "[json]": {
+        "files.insertFinalNewline": true,
+    },
+    "[jsonc]": {
+        "files.insertFinalNewline": true,
+    },
+}

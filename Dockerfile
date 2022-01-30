@@ -28,6 +28,8 @@ RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -
 
 # Copy the binary to the production image from the builder stage.
 COPY --from=builder /app/server /app/server
+# COPY --from=builder /app/testdata/storage/session.bin /app/storage/session.bin
+# COPY --from=builder /app/testdata/storage/site.bin /app/storage/site.bin
 
 # Create and change to the app folder.
 WORKDIR /app

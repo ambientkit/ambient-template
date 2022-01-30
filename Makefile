@@ -1,11 +1,11 @@
 # This Makefile is an easy way to run common operations.
 # Execute commands like this:
-# * make
-# * make run-env
+# * make env
 # * make storage
+# * make run-env
 
 # Load the environment variables.
-include .env
+-include .env
 
 .PHONY: default
 default: run
@@ -13,6 +13,11 @@ default: run
 ################################################################################
 # Setup app
 ################################################################################
+
+.PHONY: env
+env:
+	@echo Generating .env file.
+	@cp testdata/.env .env
 
 .PHONY: privatekey
 privatekey:
@@ -33,23 +38,77 @@ passhash:
 	@echo Generating password hash.
 	@echo You can paste private key this into your .env file:
 	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/ambient/plugin/generic/bearblog/cmd/passhash
-	@./bin/passhash  ${ARGS}
+	@./bin/passhash ${ARGS}
 
 .PHONY: storage
 storage:
 	@echo Creating session and site storage files locally.
-	cp storage/initial/session.bin storage/session.bin
-	cp storage/initial/site.bin storage/site.bin
+	cp testdata/storage/session.bin storage/session.bin
+	cp testdata/storage/site.bin storage/site.bin
+
+################################################################################
+# Build Application
+################################################################################
 
 .PHONY: run-env
 run-env:
-	@echo Starting local server.
+	@echo Starting local server with .env.
 	AMB_DOTENV=true go run cmd/myapp/main.go
 
+.PHONY: run-local
+run-local:
+	@echo Starting local server without .env.
+	go run cmd/myapp/main.go
+
+.PHONY: buildrun
+buildrun: build run
+
+# Build the docker image.
+.PHONY: build
+build:
+	docker build -t ${APPNAME}:$(shell cat VERSION.md) .
+
+# Run and exec into the docker container.
+.PHONY: exec
+exec:
+	docker run --rm --env-file .env -v ${shell pwd}/storage:/app/storage -it ${APPNAME}:$(shell cat VERSION.md) sh
+
+# Run a new docker container.
 .PHONY: run
 run:
-	@echo Starting local server.
-	go run cmd/myapp/main.go
+	docker run --rm --env-file .env -v ${shell pwd}/storage:/app/storage -p 8080:8080 ${APPNAME}:$(shell cat VERSION.md)
+
+################################################################################
+# Tools
+################################################################################
+
+# Update Go dependencies.
+.PHONY: update
+update:
+	 go get -u -f -d ./...
+	 go mod tidy
+
+# Install swagger to local bin folder to allow generating a Swagger spec from code.
+.PHONY: swagger-install
+swagger-install:
+	curl -o ./bin/swagger -L "https://github.com/go-swagger/go-swagger/releases/download/v0.29.0/swagger_darwin_amd64"
+	chmod +x ./bin/swagger
+
+# Generate swagger spec and replace with correct version.
+.PHONY: swagger
+swagger:
+	swagger generate spec -o swagger.json cmd/app/main.go
+	sed "s/VERSIONPLACEHOLDER/${shell cat VERSION.md}/g" swagger.json > tmp.json && mv tmp.json swagger.json
+
+# Serve the swagger spec.
+.PHONY: swagger-serve
+swagger-serve:
+	 swagger serve -F swagger swagger.json
+
+# Install air to local bin folder to allow live rebuilding so you can make code changes quickly.
+.PHONY: air-install
+air-install:
+	 curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
 
 ################################################################################
 # Deploy app to Google Cloud

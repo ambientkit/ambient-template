@@ -1,3 +1,7 @@
+# OS cache files.
+.DS_Store
+thumbs.db
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -11,13 +15,13 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# App specific files.
-.DS_Store
-/tmp
-/bin
-.env*
+# Project files.
+tmp/
+bin/
+node_modules/
 .azure/
 .bash_history
-node_modules
+.env
+.envrc
 package-lock.json
 /deploy/azure/ambient
