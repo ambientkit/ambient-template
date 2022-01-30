@@ -101,6 +101,19 @@ update-ambient:
 	 go get -u github.com/ambientkit/ambient@${ARGS}
 	 go mod tidy
 
+# Save the ARGS.
+# https://stackoverflow.com/a/14061796
+ifeq (update-plugin,$(firstword $(MAKECMDGOALS)))
+  ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  $(eval $(ARGS):;@:)
+endif
+
+# Update Ambient plugin dependency.
+.PHONY: update-plugin
+update-plugin:
+	 go get -u github.com/ambientkit/plugin@${ARGS}
+	 go mod tidy
+
 # Install swagger to local bin folder to allow generating a Swagger spec from code.
 .PHONY: swagger-install
 swagger-install:

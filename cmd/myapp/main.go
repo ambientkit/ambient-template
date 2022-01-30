@@ -32,10 +32,10 @@ import (
 
 	"github.com/ambientkit/ambient"
 	"github.com/ambientkit/ambient-template/cmd/myapp/app"
-	"github.com/ambientkit/ambient/lib/aesdata"
-	"github.com/ambientkit/ambient/lib/cloudstorage"
 	"github.com/ambientkit/ambient/lib/envdetect"
 	"github.com/ambientkit/plugin/logger/zaplogger"
+	"github.com/ambientkit/plugin/pkg/aesdata"
+	"github.com/ambientkit/plugin/pkg/cloudstorage"
 	"github.com/joho/godotenv"
 )
 
