@@ -14,7 +14,7 @@ Use the [Plugin Development Guide](https://github.com/ambientkit/plugin/blob/mai
 
 ## Quickstart on Local
 
-To test out the sample web app, you can run these commands:
+To test out the sample web app, you can run these commands below. You can also view screenshots of the app [here](https://github.com/ambientkit/ambient#screenshots).
 
 ```bash
 # Build the Ambient interactive CLI (amb) in the current folder.
