@@ -35,7 +35,7 @@ import (
 	"github.com/ambientkit/ambient/lib/aesdata"
 	"github.com/ambientkit/ambient/lib/cloudstorage"
 	"github.com/ambientkit/ambient/lib/envdetect"
-	"github.com/ambientkit/ambient/plugin/logger/zaplogger"
+	"github.com/ambientkit/plugin/logger/zaplogger"
 	"github.com/joho/godotenv"
 )
 

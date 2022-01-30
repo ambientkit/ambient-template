@@ -18,7 +18,7 @@ To test out the sample web app, you can run these commands:
 
 ```bash
 # Build the Ambient interactive CLI (amb) in the current folder.
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ambientkit/ambient/main/bash/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ambientkit/amb/main/bash/install.sh)"
 
 # Run the app.
 ./amb
