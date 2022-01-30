@@ -76,7 +76,7 @@ The login page is located at: http://localhost:8080/login.
 
 ## Swagger Spec Generation
 
-You can easily [generate a Swagger spec](https://goswagger.io/use/spec.html) for your API from annotations in your code:
+You can easily [generate a Swagger spec](https://goswagger.io/use/spec.html) for the API from annotations in the code:
 
 ```bash
 # Install Swagger to local bin folder.
