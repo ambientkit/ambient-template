@@ -60,7 +60,7 @@ To login, you'll need:
 
 Once you are logged in, you should see a new menu option call `Plugins`. From this screen, you'll be able to use the Plugin Manager to make changes to state, permissions, and settings for all plugins.
 
-## Production Deployment
+## Container Deployment
 
 To test out the sample app in Docker, you can run these commands:
 
@@ -71,6 +71,25 @@ make build
 # Test running the Docker container.
 make run
 ```
+
+## Swagger Spec Generation
+
+You can easily [generate a Swagger spec](https://goswagger.io/use/spec.html) for your API from annotations in your code:
+
+```bash
+# Install Swagger to local bin folder.
+make swagger-install
+
+# Generate Swagger spec: swagger.json.
+make swagger
+
+# Serve the Swagger spec and open a browser window to view and make requests.
+# You need to enable the `healthcheck` and `cors` plugins for this testable UI
+# to function properly. You will also need the Go application running as well.
+make swagger-serve
+```
+
+You can also generate SDKs and a CLI to interact with the API. You can read more about it [here](https://goswagger.io/generate/requirements.html).
 
 ## Development Workflow
 
