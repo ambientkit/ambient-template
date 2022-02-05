@@ -1,5 +1,7 @@
 # Sample App using Ambient
 
+Thanks for visiting! All docs are available [here](https://ambientkit.github.io/docs/).
+
 This repository contains a sample app to demonstrate how to use the [Ambient](https://github.com/ambientkit/ambient) pluggable web framework.
 
 ### What is it?
@@ -74,12 +76,25 @@ make run
 
 The login page is located at: http://localhost:8080/login.
 
-## Swagger Spec Generation
+## Automatic Rebuilds
+
+If you would like to make changes to the code that rebuilds automatically, it's recommended to use [`air`](https://github.com/cosmtrek/air) to help streamline your workflow.
+
+```bash
+# Install air to project bin folder.
+make air-install
+
+# Start air to monitor code changes. The web app should be available at:
+# http://localhost:8080
+air
+```
+
+## Swagger Generation
 
 You can easily [generate a Swagger spec](https://goswagger.io/use/spec.html) for the API from annotations in the code:
 
 ```bash
-# Install Swagger to local bin folder.
+# Install Swagger to project bin folder.
 make swagger-install
 
 # Generate Swagger spec: swagger.json.
@@ -93,20 +108,7 @@ make swagger-serve
 
 You can also generate SDKs and a CLI to interact with the API. You can read more about it [here](https://goswagger.io/generate/requirements.html).
 
-## Development Workflow
-
-If you would like to make changes to the code that rebuilds automatically, it's recommended to use [`air`](https://github.com/cosmtrek/air) to help streamline your workflow.
-
-```bash
-# Install air to local bin folder.
-make air-install
-
-# Start air to monitor code changes. The web app should be available at:
-# http://localhost:8080
-air
-```
-
-## Local Development Flags
+## Environment Variables
 
 You can set the web server `PORT` to values other than `8080`.
 

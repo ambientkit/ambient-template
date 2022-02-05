@@ -16,7 +16,7 @@ Once you have `direnv` installed, create a .envrc file in the root of your proje
 # Load the shared environment variables (shared with Makefile).
 # Export the vars in .env into the shell.
 export $(egrep -v '^#' .env | xargs)
-# Add local bin and node modules folder to PATH.
+# Add project bin and node modules folder to PATH.
 export PATH=$PATH:$(pwd)/bin:$(pwd)/node_modules/.bin
 ```
 

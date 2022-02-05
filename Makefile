@@ -114,7 +114,7 @@ update-plugin:
 	go get -u github.com/ambientkit/plugin@${ARGS}
 	go mod tidy
 
-# Install swagger to local bin folder to allow generating a Swagger spec from code.
+# Install swagger to project bin folder to allow generating a Swagger spec from code.
 .PHONY: swagger-install
 swagger-install:
 	curl -o ./bin/swagger -L "https://github.com/go-swagger/go-swagger/releases/download/v0.29.0/swagger_darwin_amd64"
@@ -131,7 +131,7 @@ swagger:
 swagger-serve:
 	./bin/swagger serve -F swagger swagger.json
 
-# Install air to local bin folder to allow live rebuilding so you can make code changes quickly.
+# Install air to project bin folder to allow live rebuilding so you can make code changes quickly.
 .PHONY: air-install
 air-install:
 	curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s

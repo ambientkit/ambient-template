@@ -63,7 +63,7 @@
             "# $1",
             ".PHONY: $2",
             "$2:",
-            "\t @echo ${VAR} $(shell cat VERSION.md)"
+            "\t@echo ${VAR} $(shell cat VERSION.md)"
         ],
         "description": "Makefile step."
     },
@@ -74,7 +74,7 @@
         "prefix": "path",
         "scope": "shellscript",
         "body": [
-            "# Add local bin and node modules folder to PATH.",
+            "# Add project bin and node modules folder to PATH.",
             "export PATH=$$PATH:$(pwd)/bin:$(pwd)/node_modules/.bin$1"
         ],
         "description": "Path including bin and node_modules."
