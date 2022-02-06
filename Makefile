@@ -98,7 +98,7 @@ endif
 # Update Ambient dependency.
 .PHONY: update-ambient
 update-ambient:
-	go get -u github.com/ambientkit/ambient@${ARGS}
+	go get github.com/ambientkit/ambient@${ARGS}
 	go mod tidy
 
 # Pass in ARGS.
@@ -111,7 +111,7 @@ endif
 # Update Ambient plugin dependency.
 .PHONY: update-plugin
 update-plugin:
-	go get -u github.com/ambientkit/plugin@${ARGS}
+	go get github.com/ambientkit/plugin@${ARGS}
 	go mod tidy
 
 # Install swagger to project bin folder to allow generating a Swagger spec from code.
