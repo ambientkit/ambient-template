@@ -21,8 +21,7 @@ env:
 
 .PHONY: privatekey
 privatekey:
-	@echo Generating private key for encrypting sessions.
-	@echo You can paste private key this into your .env file:
+	# Session key to encrypt the cookie store.
 	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/plugin/pkg/uuid/cmd/privatekey
 	@./bin/privatekey
 
@@ -35,8 +34,7 @@ endif
 
 .PHONY: passhash
 passhash:
-	@echo Generating password hash.
-	@echo You can paste private key this into your .env file:
+	# Password hash that is base64 encoded.
 	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/plugin/pkg/passhash/cmd/passhash
 	@./bin/passhash ${ARGS}
 
