@@ -27,7 +27,7 @@
 package main
 
 import (
-	stdlog "log"
+	"log"
 	"os"
 
 	"github.com/ambientkit/ambient"
@@ -46,7 +46,7 @@ var (
 
 func init() {
 	// Verbose logging with file name and line number for the standard logger.
-	stdlog.SetFlags(stdlog.Lshortfile)
+	log.SetFlags(log.Lshortfile)
 }
 
 func main() {
@@ -54,14 +54,14 @@ func main() {
 	if envdetect.LoadDotEnv() {
 		err := godotenv.Load()
 		if err != nil {
-			stdlog.Fatalf("app: error loading .env file: %v\n", err.Error())
+			log.Fatalf("app: error loading .env file: %v\n", err.Error())
 		}
 	}
 
 	// Get the environment variables.
 	secretKey := os.Getenv("AMB_SESSION_KEY")
 	if len(secretKey) == 0 {
-		stdlog.Fatalf("app: environment variable missing: %v\n", "AMB_SESSION_KEY")
+		log.Fatalf("app: environment variable missing: %v\n", "AMB_SESSION_KEY")
 	}
 
 	// Determine cloud storage engine for site and session information.
@@ -70,7 +70,7 @@ func main() {
 
 	// Create the ambient app.
 	plugins := app.Plugins()
-	ambientApp, log, err := ambient.NewApp(appName, appVersion,
+	ambientApp, logger, err := ambient.NewApp(appName, appVersion,
 		zaplogger.New(),
 		ambient.StoragePluginGroup{
 			Storage:    storage,
@@ -78,13 +78,8 @@ func main() {
 		},
 		plugins)
 	if err != nil {
-		if log != nil {
-			// Use the logger if it's available.
-			log.Fatal("", err.Error())
-		} else {
-			// Else use the standard logger.
-			stdlog.Fatalln(err.Error())
-		}
+		// Use the standard logger.
+		log.Fatalln(err.Error())
 	}
 
 	// Set the log level.
@@ -93,7 +88,7 @@ func main() {
 	// Load the plugins and return the handler.
 	mux, err := ambientApp.Handler()
 	if err != nil {
-		log.Fatal("", err.Error())
+		logger.Fatal("", err.Error())
 	}
 
 	// Start the web listener.
