@@ -102,7 +102,7 @@ make swagger
 
 # Serve the Swagger spec and open a browser window to view and make requests.
 # You need to enable the `healthcheck` and `cors` plugins for this testable UI
-# to function properly. You will also need the Go application running as well.
+# to function properly. You will also need the app running.
 make swagger-serve
 ```
 
