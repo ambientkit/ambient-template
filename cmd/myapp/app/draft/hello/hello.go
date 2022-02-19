@@ -14,7 +14,6 @@ var assets embed.FS
 // Plugin represents an Ambient plugin.
 type Plugin struct {
 	*ambient.PluginBase
-	*ambient.Toolkit
 }
 
 // New returns a new hello plugin.
@@ -36,7 +35,11 @@ func (p *Plugin) PluginVersion() string {
 
 // Enable accepts the toolkit.
 func (p *Plugin) Enable(toolkit *ambient.Toolkit) error {
-	p.Toolkit = toolkit
+	err := p.PluginBase.Enable(toolkit)
+	if err != nil {
+		return err
+	}
+
 	p.startBackgroundTask()
 	return nil
 }

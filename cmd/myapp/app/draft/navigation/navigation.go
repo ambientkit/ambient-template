@@ -13,7 +13,6 @@ var assets embed.FS
 // Plugin represents an Ambient plugin.
 type Plugin struct {
 	*ambient.PluginBase
-	*ambient.Toolkit
 }
 
 // New returns a new navigation plugin.
@@ -31,12 +30,6 @@ func (p *Plugin) PluginName() string {
 // PluginVersion returns the plugin version.
 func (p *Plugin) PluginVersion() string {
 	return "1.0.0"
-}
-
-// Enable accepts the toolkit.
-func (p *Plugin) Enable(toolkit *ambient.Toolkit) error {
-	p.Toolkit = toolkit
-	return nil
 }
 
 // GrantRequests returns a list of grants requested by the plugin.

@@ -37,7 +37,11 @@ func (p *Plugin) CustomFunction() string {
 
 // // Enable accepts the toolkit.
 // func (p *Plugin) Enable(toolkit *ambient.Toolkit) error {
-// 	p.Toolkit = toolkit
+// 	err := p.PluginBase.Enable(toolkit)
+// 	if err != nil {
+// 		return err
+// 	}
+
 // 	p.startBackgroundTask()
 // 	return nil
 // }

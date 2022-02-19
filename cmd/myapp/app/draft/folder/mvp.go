@@ -12,11 +12,6 @@ type Plugin struct {
 	// versions of the interface as long as functions defined below still match
 	// the interface.
 	*ambient.PluginBase
-	// Toolkit is an object that should be assigned when the plugin is enabled
-	// so the plugin can interact with the Logger, Router, Renderer, and
-	// SecureSite. If the plugin tries to interact with the toolkit before the
-	// plugin is enabled, it will be nil.
-	*ambient.Toolkit
 }
 
 // New returns a new mvp plugin. This should be modified to include any values
@@ -39,10 +34,4 @@ func (p *Plugin) PluginName() string {
 // https://semver.org/.
 func (p *Plugin) PluginVersion() string {
 	return "1.0.0"
-}
-
-// Enable accepts the toolkit and stores it for use when enabled.
-func (p *Plugin) Enable(toolkit *ambient.Toolkit) error {
-	p.Toolkit = toolkit
-	return nil
 }
