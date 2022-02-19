@@ -97,7 +97,7 @@ endif
 .PHONY: update-ambient
 update-ambient:
 	go get github.com/ambientkit/ambient@${ARGS}
-	go mod tidy
+	go mod tidy -compat=1.17
 
 # Pass in ARGS.
 # https://stackoverflow.com/a/14061796
@@ -110,7 +110,7 @@ endif
 .PHONY: update-plugin
 update-plugin:
 	go get github.com/ambientkit/plugin@${ARGS}
-	go mod tidy
+	go mod tidy -compat=1.17
 
 # Install swagger to project bin folder to allow generating a Swagger spec from code.
 .PHONY: swagger-install
