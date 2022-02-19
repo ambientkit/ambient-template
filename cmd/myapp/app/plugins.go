@@ -71,9 +71,10 @@ func Plugins() *ambient.PluginLoader {
 		// Trusted plugins are those that are typically needed to boot so they
 		// will be enabled and given full access.
 		TrustedPlugins: map[string]bool{
-			"pluginmanager": true, // Page to manage plugins.
-			"simplelogin":   true, // Simple login page.
-			"bearcss":       true, // Bear Blog styling.
+			"pluginmanager":   true, // Page to manage plugins.
+			"simplelogin":     true, // Simple login page.
+			"bearcss":         true, // Bear Blog styling.
+			"securedashboard": true, // Prevent access to dashboard.
 		},
 		Plugins: []ambient.Plugin{
 			// Marketplace plugins.
