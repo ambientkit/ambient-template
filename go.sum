@@ -74,12 +74,12 @@ github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/alexedwards/scs/v2 v2.5.0 h1:zgxOfNFmiJyXG7UPIuw1g2b9LWBeRLh3PjfB9BDmfL4=
 github.com/alexedwards/scs/v2 v2.5.0/go.mod h1:ToaROZxyKukJKT/xLcVQAChi5k6+Pn1Gvmdl7h3RRj8=
-github.com/ambientkit/ambient v0.0.0-20220220065130-58dfa8bd5bdb h1:HUa3nF/PPmOlhnIQvsMHw2t0cVohIKL4uvL0qdRn6cE=
-github.com/ambientkit/ambient v0.0.0-20220220065130-58dfa8bd5bdb/go.mod h1:giDU2OqYoW8iR/8LesNTrP+BmpducfU908yPWIjeCh4=
+github.com/ambientkit/ambient v0.0.0-20220220070013-3d9ab2588278 h1:kXumCOv8ATyKtZC2KLfVRlBuvzlW5RPGCcBzORXinJA=
+github.com/ambientkit/ambient v0.0.0-20220220070013-3d9ab2588278/go.mod h1:giDU2OqYoW8iR/8LesNTrP+BmpducfU908yPWIjeCh4=
 github.com/ambientkit/away v0.0.0-20220204201214-109176be7537 h1:x+tXQwv9ZfBwbVW/n/LgKVec+8xOe8I2OCNwvF9YiU0=
 github.com/ambientkit/away v0.0.0-20220204201214-109176be7537/go.mod h1:Sk1OeLgFvcZDZMcFXEhGj4eX0AEWUIK9WyFz256aFKo=
-github.com/ambientkit/plugin v0.0.0-20220220065204-81141374c457 h1:xco66wEJ+bNHsA9bFk9A7b9CxxC/HI9ylR6wjDx3Wjw=
-github.com/ambientkit/plugin v0.0.0-20220220065204-81141374c457/go.mod h1:Om9QcWu/TNS7mNgeDy4EL9l4U+T/q3rqOUr5cKwQESI=
+github.com/ambientkit/plugin v0.0.0-20220220070100-9fec8e5d8891 h1:MakXnEviAhpkorQFDgtvvT4ckrrU/wLP/1PLOpR7tGs=
+github.com/ambientkit/plugin v0.0.0-20220220070100-9fec8e5d8891/go.mod h1:FgYNOfmctuknhtLhGRYXGWCo9FvC9BWlSRgbEnncaQ0=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/aws/aws-sdk-go-v2 v1.13.0 h1:1XIXAfxsEmbhbj5ry3D3vX+6ZcUYvIqSm4CWWEuGZCA=
 github.com/aws/aws-sdk-go-v2 v1.13.0/go.mod h1:L6+ZpqHaLbAaxsqV0L4cvxZY7QupWJB4fhkf8LXvC7w=
