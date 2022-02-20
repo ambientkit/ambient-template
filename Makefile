@@ -84,7 +84,7 @@ run:
 .PHONY: update
 update:
 	go get -u -f -d ./...
-	go mod tidy
+	go mod tidy -compat=1.17
 
 # Pass in ARGS.
 # https://stackoverflow.com/a/14061796
