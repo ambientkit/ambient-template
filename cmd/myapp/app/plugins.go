@@ -74,7 +74,7 @@ func Plugins() *ambient.PluginLoader {
 			"pluginmanager":   true, // Page to manage plugins.
 			"simplelogin":     true, // Simple login page.
 			"bearcss":         true, // Bear Blog styling.
-			"securedashboard": true, // Prevent access to dashboard.
+			"securedashboard": true, // Prevent unathenticated access to dashboard.
 		},
 		Plugins: []ambient.Plugin{
 			// Marketplace plugins.
