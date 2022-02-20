@@ -78,8 +78,8 @@ github.com/ambientkit/ambient v0.0.0-20220219235518-9bcd5c5d1680 h1:hjCNF5+YjqKv
 github.com/ambientkit/ambient v0.0.0-20220219235518-9bcd5c5d1680/go.mod h1:giDU2OqYoW8iR/8LesNTrP+BmpducfU908yPWIjeCh4=
 github.com/ambientkit/away v0.0.0-20220204201214-109176be7537 h1:x+tXQwv9ZfBwbVW/n/LgKVec+8xOe8I2OCNwvF9YiU0=
 github.com/ambientkit/away v0.0.0-20220204201214-109176be7537/go.mod h1:Sk1OeLgFvcZDZMcFXEhGj4eX0AEWUIK9WyFz256aFKo=
-github.com/ambientkit/plugin v0.0.0-20220219235648-10d368752013 h1:TSTDGAIAlLpCPUprBIVboFDC0fPchHVqLxN5ssiboaU=
-github.com/ambientkit/plugin v0.0.0-20220219235648-10d368752013/go.mod h1:VXvrZ6MLjS2Kx+9Hdp+/Q4gFpN045Qp2kViUeXNG3GI=
+github.com/ambientkit/plugin v0.0.0-20220220001508-87eec23b14a8 h1:3cXBA/i+8c+Uk1sFiWNUpVYxPHwvF7686hNie5tPqRM=
+github.com/ambientkit/plugin v0.0.0-20220220001508-87eec23b14a8/go.mod h1:VXvrZ6MLjS2Kx+9Hdp+/Q4gFpN045Qp2kViUeXNG3GI=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/aws/aws-sdk-go-v2 v1.13.0 h1:1XIXAfxsEmbhbj5ry3D3vX+6ZcUYvIqSm4CWWEuGZCA=
 github.com/aws/aws-sdk-go-v2 v1.13.0/go.mod h1:L6+ZpqHaLbAaxsqV0L4cvxZY7QupWJB4fhkf8LXvC7w=

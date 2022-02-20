@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/ambientkit/ambient v0.0.0-20220219235518-9bcd5c5d1680
-	github.com/ambientkit/plugin v0.0.0-20220219235648-10d368752013
+	github.com/ambientkit/plugin v0.0.0-20220220001508-87eec23b14a8
 	github.com/joho/godotenv v1.4.0
 )
 
