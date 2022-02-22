@@ -1,6 +1,6 @@
 # Sample App using Ambient
 
-Thanks for visiting! All docs are available [here](https://ambientkit.github.io/docs/).
+Thanks for visiting! All docs are available [here](https://ambientkit.github.io/).
 
 This repository contains a sample app to demonstrate how to use the [Ambient](https://github.com/ambientkit/ambient) pluggable web framework. Ambient is a framework in Go for building web apps using plugins. You can use the plugins already included to stand up a blog just like the [Bear Blog](https://bearblog.dev/) or create your own plugins to build your own web app. Plugins can be enabled/disabled while the app is running which means routes as well as middleware can also modified without restarting the app. Plugins must be granted permissions above being enabled which provides you with better control over your web app. You can read why the Ambient framework was created [here](https://ambientkit.github.io/docs/docs/faq).
 
