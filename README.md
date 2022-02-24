@@ -42,7 +42,7 @@ The login page is located at: http://localhost:8080/login.
 To login, you'll need:
 
 - the default username is: `admin`
-- the password from the .env file for which the `AMB_PASSWORD_HASH` was derived
+- the password from above
 
 Once you are logged in, you should see a new menu option call `Plugins`. From this screen, you'll be able to use the Plugin Manager to make changes to state, permissions, and settings for all plugins.
 
