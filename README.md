@@ -28,23 +28,13 @@ exit
 # Change to the new project folder.
 cd ambapp
 
-# Download the Go dependencies.
-go mod download
-
-# Create the session and site files in the storage folder.
-make storage
-
-# Create the .env file.
-make env
-
-# Generate a new private key.
-make privatekey >> .env
-
-# Generate a new password hash (replace with your password).
-make passhash passwordhere >> .env
+# Download Go dependencies, create storage files, create .env file, generate a
+# new private key, and generate a hash for the password.
+# Ensure you replace 'passwordhere' with your passowrd.
+make init passwordhere
 
 # Start the webserver on port 8080 (local development with no Docker).
-make run-env
+make start
 ```
 
 The login page is located at: http://localhost:8080/login.

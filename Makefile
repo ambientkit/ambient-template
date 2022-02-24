@@ -14,6 +14,11 @@ default: run
 # Setup app
 ################################################################################
 
+# Download dependencies.
+.PHONY: download
+download:
+	go mod download
+
 .PHONY: env
 env:
 	@echo Generating .env file.
@@ -23,7 +28,7 @@ env:
 privatekey:
 	# Session key to encrypt the cookie store.
 	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/plugin/pkg/uuid/cmd/privatekey
-	@./bin/privatekey
+	@./bin/privatekey >> .env
 
 # Pass in ARGS.
 # https://stackoverflow.com/a/14061796
@@ -36,7 +41,7 @@ endif
 passhash:
 	# Password hash that is base64 encoded.
 	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/plugin/pkg/passhash/cmd/passhash
-	@./bin/passhash ${ARGS}
+	@./bin/passhash ${ARGS} >> .env
 
 .PHONY: storage
 storage:
@@ -44,17 +49,31 @@ storage:
 	cp testdata/storage/session.bin storage/session.bin
 	cp testdata/storage/site.bin storage/site.bin
 
+# Pass in ARGS.
+# https://stackoverflow.com/a/14061796
+ifeq (init,$(firstword $(MAKECMDGOALS)))
+  ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  $(eval $(ARGS):;@:)
+endif
+
+# Initial setup.
+.PHONY: init
+init: download storage env privatekey
+	# Password hash that is base64 encoded.
+	@GOBIN=$(shell pwd)/bin go install github.com/ambientkit/plugin/pkg/passhash/cmd/passhash
+	@./bin/passhash ${ARGS} >> .env
+
 ################################################################################
 # Build App
 ################################################################################
 
-.PHONY: run-env
-run-env:
+.PHONY: start
+start:
 	@echo Starting local server with .env.
 	AMB_DOTENV=true go run cmd/myapp/main.go
 
-.PHONY: run-local
-run-local:
+.PHONY: start-noenv
+start-noenv:
 	@echo Starting local server without .env.
 	go run cmd/myapp/main.go
 
