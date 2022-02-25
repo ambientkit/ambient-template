@@ -70,7 +70,7 @@ make air-install
 
 # Start air to monitor code changes. The web app should be available at:
 # http://localhost:8080
-air
+make air
 ```
 
 ## Swagger Generation
