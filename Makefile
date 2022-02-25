@@ -19,6 +19,11 @@ default: run
 download:
 	go mod download
 
+# Run go mod tidy.
+.PHONY: tidy
+tidy:
+	go mod tidy -compat=1.17
+
 .PHONY: env
 env:
 	@echo Generating .env file.
