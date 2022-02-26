@@ -52,7 +52,7 @@ func (p *Plugin) CustomFunction() string {
 // 	return nil
 // }
 
-// // Routes gets routes for the plugin.
+// // Routes sets routes for the plugin.
 // func (p *Plugin) Routes() {
 // 	p.Mux.Get("/dashboard/hello", p.index)
 // }
