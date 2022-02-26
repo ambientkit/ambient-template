@@ -3,8 +3,8 @@ module github.com/ambientkit/ambient-template
 go 1.17
 
 require (
-	github.com/ambientkit/ambient v0.0.0-20220226045505-c05cf2ff2d88
-	github.com/ambientkit/plugin v0.0.0-20220226050344-913356718e4f
+	github.com/ambientkit/ambient v0.0.0-20220226170806-99611fbe4647
+	github.com/ambientkit/plugin v0.0.0-20220226171045-0a2ffb8ecdde
 	github.com/joho/godotenv v1.4.0
 )
 
@@ -16,7 +16,7 @@ require (
 	github.com/Azure/azure-pipeline-go v0.2.3 // indirect
 	github.com/Azure/azure-storage-blob-go v0.14.0 // indirect
 	github.com/alexedwards/scs/v2 v2.5.0 // indirect
-	github.com/ambientkit/away v0.0.0-20220204201214-109176be7537 // indirect
+	github.com/ambientkit/away v0.0.0-20220226144500-f0b722f78428 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.13.0 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.2.0 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.13.1 // indirect
