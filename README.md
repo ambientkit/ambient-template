@@ -101,7 +101,7 @@ You can read about environment variables [here](https://ambientkit.github.io/doc
 In the main.go file, you can modify your log level with `SetLogLevel()`:
 
 ```go
-ambientApp, err := ambient.NewApp(...)
+ambientApp, err := ambientapp.NewApp(...)
 ambientApp.SetLogLevel(ambient.LogLevelDebug)
 ambientApp.SetLogLevel(ambient.LogLevelInfo)
 ambientApp.SetLogLevel(ambient.LogLevelError)
@@ -111,13 +111,13 @@ ambientApp.SetLogLevel(ambient.LogLevelFatal)
 You can enable `span` tags around HTML elements to determine which content is loaded from which plugins with `SetDebugTemplates()`:
 
 ```go
-ambientApp, err := ambient.NewApp(...)
+ambientApp, err := ambientapp.NewApp(...)
 ambientApp.SetDebugTemplates(true)
 ```
 
 You can disable template escaping with `SetEscapeTemplates()`:
 
 ```go
-ambientApp, err := ambient.NewApp(...)
+ambientApp, err := ambientapp.NewApp(...)
 ambientApp.SetEscapeTemplates(false)
 ```

@@ -32,6 +32,7 @@ import (
 
 	"github.com/ambientkit/ambient"
 	"github.com/ambientkit/ambient-template/cmd/myapp/app"
+	"github.com/ambientkit/ambient/pkg/ambientapp"
 	"github.com/ambientkit/ambient/pkg/envdetect"
 	"github.com/ambientkit/plugin/logger/zaplogger"
 	"github.com/ambientkit/plugin/pkg/aesdata"
@@ -70,7 +71,7 @@ func main() {
 
 	// Create the ambient app.
 	plugins := app.Plugins()
-	ambientApp, logger, err := ambient.NewApp(appName, appVersion,
+	ambientApp, logger, err := ambientapp.NewApp(appName, appVersion,
 		zaplogger.New(),
 		ambient.StoragePluginGroup{
 			Storage:    storage,
