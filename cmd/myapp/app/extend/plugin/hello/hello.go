@@ -74,7 +74,7 @@ func (p *Plugin) CustomFunction() string {
 // 		for {
 // 			select {
 // 			case <-done:
-// 				p.Log.Info("", "Background task stopped")
+// 				p.Log.Info("Background task stopped")
 // 				return
 // 			case t := <-ticker.C:
 // 				p.Log.Info("Tick at %v", t)
@@ -82,7 +82,7 @@ func (p *Plugin) CustomFunction() string {
 // 		}
 // 	}()
 
-// 	p.Log.Info("", "Background task started")
+// 	p.Log.Info("Background task started")
 // }
 
 // func (p *Plugin) index(w http.ResponseWriter, r *http.Request) (status int, err error) {

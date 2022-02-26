@@ -88,7 +88,7 @@ func main() {
 	// Load the plugins and return the handler.
 	mux, err := ambientApp.Handler()
 	if err != nil {
-		logger.Fatal("", err.Error())
+		logger.Fatal(err.Error())
 	}
 
 	// Start the web listener.

@@ -72,7 +72,7 @@ func (p *Plugin) startBackgroundTask() {
 		for {
 			select {
 			case <-done:
-				p.Log.Info("", "Background task stopped")
+				p.Log.Info("Background task stopped")
 				return
 			case t := <-ticker.C:
 				p.Log.Info("Tick at %v", t)
@@ -80,5 +80,5 @@ func (p *Plugin) startBackgroundTask() {
 		}
 	}()
 
-	p.Log.Info("", "Background task started")
+	p.Log.Info("Background task started")
 }
