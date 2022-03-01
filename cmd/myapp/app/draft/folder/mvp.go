@@ -23,9 +23,9 @@ func New() *Plugin {
 	}
 }
 
-// PluginName returns the plugin name. This name should match the package name.
-// PluginName should be globally unique. Only lowercase letters, numbers,
-// and underscores are permitted. Must start with with a letter.
+// PluginName returns the plugin name. PluginName should be globally unique.
+// It must start with a lowercase letter and then contain only lowercase letters
+// and numbers.
 func (p *Plugin) PluginName() string {
 	return "mvp"
 }

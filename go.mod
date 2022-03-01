@@ -3,8 +3,8 @@ module github.com/ambientkit/ambient-template
 go 1.17
 
 require (
-	github.com/ambientkit/ambient v0.0.0-20220226234857-15af223fe051
-	github.com/ambientkit/plugin v0.0.0-20220226235042-d48951696f3f
+	github.com/ambientkit/ambient v0.0.0-20220301075601-c49b5b6daef5
+	github.com/ambientkit/plugin v0.0.0-20220301082903-00ae13c461cb
 	github.com/joho/godotenv v1.4.0
 )
 
@@ -63,7 +63,7 @@ require (
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
-	golang.org/x/sys v0.0.0-20220224120231-95c6836cb0e7 // indirect
+	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.9 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
