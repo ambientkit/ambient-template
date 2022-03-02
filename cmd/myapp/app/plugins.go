@@ -77,7 +77,7 @@ func Plugins() *ambient.PluginLoader {
 			"securedashboard": true, // Prevent unathenticated access to dashboard.
 		},
 		Plugins: []ambient.Plugin{
-			// Marketplace plugins.
+			// Standard library plugins.
 			charset.New(),                 // Charset to the HTML head.
 			simplelogin.New(passwordHash), // Simple login page.
 			bearblog.New(passwordHash),    // Bear Blog functionality.
