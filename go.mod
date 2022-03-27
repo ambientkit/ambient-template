@@ -3,8 +3,8 @@ module github.com/ambientkit/ambient-template
 go 1.17
 
 require (
-	github.com/ambientkit/ambient v0.0.0-20220327040401-48eb3884261a
-	github.com/ambientkit/plugin v0.0.0-20220327040539-8f1a34e59814
+	github.com/ambientkit/ambient v0.0.0-20220327161457-b4c667bbf7a0
+	github.com/ambientkit/plugin v0.0.0-20220327162101-e4b290959b06
 	github.com/joho/godotenv v1.4.0
 )
 

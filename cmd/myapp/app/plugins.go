@@ -98,16 +98,15 @@ func Plugins() *ambient.PluginLoader {
 			navigation.New(),
 		},
 		Middleware: []ambient.MiddlewarePlugin{
-			// Middleware - executes bottom to top.
-			notrailingslash.New(), // Redirect all requests with a trailing slash.
-			uptimerobotok.New(),   // Provide 200 on HEAD /.
-			healthcheck.New(),     // Provide 200 on /api/healthcheck.
-			cors.New(),            // Enable CORS on /api/.
-			redirecttourl.New(),   // Redirect to production URL.
-			etagcache.New(),       // Cache using Etag.
-			gzipresponse.New(),    // Compress all HTTP responses.
-			sessionManager,        // Session manager middleware.
 			logrequest.New(),      // Log every request as INFO.
+			sessionManager,        // Session manager middleware.
+			gzipresponse.New(),    // Compress all HTTP responses.
+			etagcache.New(),       // Cache using Etag.
+			redirecttourl.New(),   // Redirect to production URL.
+			cors.New(),            // Enable CORS on /api/.
+			healthcheck.New(),     // Provide 200 on /api/healthcheck.
+			uptimerobotok.New(),   // Provide 200 on HEAD /.
+			notrailingslash.New(), // Redirect all requests with a trailing slash.
 		},
 	}
 }
