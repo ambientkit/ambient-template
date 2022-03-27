@@ -20,7 +20,6 @@ import (
 	"github.com/ambientkit/plugin/generic/prism"
 	"github.com/ambientkit/plugin/generic/robots"
 	"github.com/ambientkit/plugin/generic/rssfeed"
-	"github.com/ambientkit/plugin/generic/simplelogin"
 	"github.com/ambientkit/plugin/generic/sitemap"
 	"github.com/ambientkit/plugin/generic/stackedit"
 	"github.com/ambientkit/plugin/generic/styles"
@@ -32,7 +31,6 @@ import (
 	"github.com/ambientkit/plugin/middleware/logrequest"
 	"github.com/ambientkit/plugin/middleware/notrailingslash"
 	"github.com/ambientkit/plugin/middleware/redirecttourl"
-	"github.com/ambientkit/plugin/middleware/securedashboard"
 	"github.com/ambientkit/plugin/middleware/uptimerobotok"
 	"github.com/ambientkit/plugin/router/awayrouter"
 	"github.com/ambientkit/plugin/sessionmanager/scssession"
@@ -71,31 +69,29 @@ func Plugins() *ambient.PluginLoader {
 		// Trusted plugins are those that are typically needed to boot so they
 		// will be enabled and given full access.
 		TrustedPlugins: map[string]bool{
-			"pluginmanager":   true, // Page to manage plugins.
-			"simplelogin":     true, // Simple login page.
-			"bearcss":         true, // Bear Blog styling.
-			"securedashboard": true, // Prevent unathenticated access to dashboard.
+			"pluginmanager": true, // Page to manage plugins.
+			"bearblog":      true, // Bear Blog login page.
+			"bearcss":       true, // Bear Blog styling.
 		},
 		Plugins: []ambient.Plugin{
 			// Standard library plugins.
-			charset.New(),                 // Charset to the HTML head.
-			simplelogin.New(passwordHash), // Simple login page.
-			bearblog.New(passwordHash),    // Bear Blog functionality.
-			bearcss.New(),                 // Bear Blog styling.
-			debugpprof.New(),              // Go pprof debug endpoints.
-			viewport.New(),                // Viewport in the HTML head.
-			author.New(),                  // Author in the HTML head.
-			description.New(),             // Description the HTML head.
-			pluginmanager.New(),           // Page to manage plugins.
-			prism.New(),                   // Prism CSS for codeblocks.
-			stackedit.New(),               // Stackedit for editing markdown.
-			googleanalytics.New(),         // Google Analytics.
-			disqus.New(),                  // Disqus for comments for blog posts.
-			robots.New(),                  // Robots file.
-			sitemap.New(),                 // Sitemap generator.
-			rssfeed.New(),                 // RSS feed generator.
-			styles.New(),                  // Style editing page.
-			envinfo.New(),                 // Show environment variables on the server.
+			charset.New(),              // Charset to the HTML head.
+			bearblog.New(passwordHash), // Bear Blog functionality.
+			bearcss.New(),              // Bear Blog styling.
+			debugpprof.New(),           // Go pprof debug endpoints.
+			viewport.New(),             // Viewport in the HTML head.
+			author.New(),               // Author in the HTML head.
+			description.New(),          // Description the HTML head.
+			pluginmanager.New(),        // Page to manage plugins.
+			prism.New(),                // Prism CSS for codeblocks.
+			stackedit.New(),            // Stackedit for editing markdown.
+			googleanalytics.New(),      // Google Analytics.
+			disqus.New(),               // Disqus for comments for blog posts.
+			robots.New(),               // Robots file.
+			sitemap.New(),              // Sitemap generator.
+			rssfeed.New(),              // RSS feed generator.
+			styles.New(),               // Style editing page.
+			envinfo.New(),              // Show environment variables on the server.
 
 			// App plugins.
 			hello.New(),
@@ -107,7 +103,6 @@ func Plugins() *ambient.PluginLoader {
 			uptimerobotok.New(),   // Provide 200 on HEAD /.
 			healthcheck.New(),     // Provide 200 on /api/healthcheck.
 			cors.New(),            // Enable CORS on /api/.
-			securedashboard.New(), // Secure all /dashboard routes.
 			redirecttourl.New(),   // Redirect to production URL.
 			etagcache.New(),       // Cache using Etag.
 			gzipresponse.New(),    // Compress all HTTP responses.
