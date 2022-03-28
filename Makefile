@@ -11,18 +11,50 @@
 default: run
 
 ################################################################################
-# Setup app
+# Dependency management
 ################################################################################
+
+# Update Ambient dependencies.
+.PHONY: update
+update: update-ambient update-plugin update-away tidy
+
+# Update Ambient dependency. Requires the repo to be local and in the same folder.
+.PHONY: update-ambient
+update-ambient:
+	go get -u github.com/ambientkit/ambient@$(shell cd ../ambient && git rev-parse HEAD)
+
+# Update Ambient dependency. Requires the repo to be local and in the same folder.
+.PHONY: update-plugin
+update-plugin:
+	go get -u github.com/ambientkit/plugin@$(shell cd ../plugin && git rev-parse HEAD)
+
+# Update Ambient dependency. Requires the repo to be local and in the same folder.
+.PHONY: update-away
+update-away:
+	go get -u github.com/ambientkit/away@$(shell cd ../away && git rev-parse HEAD)
+
+# Update all Go dependencies.
+.PHONY: update-all
+update-all: update-all-go tidy
+
+# Update all Go dependencies.
+.PHONY: update-all-go
+update-all-go:
+	go get -u -f -d ./...
+
+# Run go mod tidy.
+.PHONY: tidy
+tidy:
+	go mod tidy -compat=1.17
 
 # Download dependencies.
 .PHONY: download
 download:
 	go mod download
 
-# Run go mod tidy.
-.PHONY: tidy
-tidy:
-	go mod tidy -compat=1.17
+################################################################################
+# Setup app
+################################################################################
 
 .PHONY: env
 env:
@@ -103,38 +135,6 @@ run:
 ################################################################################
 # Tools
 ################################################################################
-
-# Update Go dependencies.
-.PHONY: update
-update:
-	go get -u -f -d ./...
-	go mod tidy -compat=1.17
-
-# Pass in ARGS.
-# https://stackoverflow.com/a/14061796
-ifeq (update-ambient,$(firstword $(MAKECMDGOALS)))
-  ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  $(eval $(ARGS):;@:)
-endif
-
-# Update Ambient dependency.
-.PHONY: update-ambient
-update-ambient:
-	go get github.com/ambientkit/ambient@${ARGS}
-	go mod tidy -compat=1.17
-
-# Pass in ARGS.
-# https://stackoverflow.com/a/14061796
-ifeq (update-plugin,$(firstword $(MAKECMDGOALS)))
-  ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  $(eval $(ARGS):;@:)
-endif
-
-# Update Ambient plugin dependency.
-.PHONY: update-plugin
-update-plugin:
-	go get github.com/ambientkit/plugin@${ARGS}
-	go mod tidy -compat=1.17
 
 # Install swagger to project bin folder to allow generating a Swagger spec from code.
 .PHONY: swagger-install
