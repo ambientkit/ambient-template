@@ -37,7 +37,7 @@ make init passwordhere
 make start
 ```
 
-The login page is located at: http://localhost:8080/login.
+The login page is located at: http://localhost:8080/login/admin.
 
 To login, you'll need:
 
@@ -58,7 +58,7 @@ make build
 make run
 ```
 
-The login page is located at: http://localhost:8080/login.
+The login page is located at: http://localhost:8080/login/admin.
 
 ## Automatic Rebuilds
 
