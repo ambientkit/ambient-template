@@ -2,6 +2,8 @@
 package mvp
 
 import (
+	"context"
+
 	"github.com/ambientkit/ambient"
 )
 
@@ -26,12 +28,12 @@ func New() *Plugin {
 // PluginName returns the plugin name. PluginName should be globally unique.
 // It must start with a lowercase letter and then contain only lowercase letters
 // and numbers.
-func (p *Plugin) PluginName() string {
+func (p *Plugin) PluginName(context.Context) string {
 	return "mvp"
 }
 
 // PluginVersion returns the plugin version. This version must follow
 // https://semver.org/.
-func (p *Plugin) PluginVersion() string {
+func (p *Plugin) PluginVersion(context.Context) string {
 	return "1.0.0"
 }

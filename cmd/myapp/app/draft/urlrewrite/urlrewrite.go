@@ -2,6 +2,7 @@
 package urlrewrite
 
 import (
+	"context"
 	"net/http"
 	"os"
 	"path"
@@ -23,24 +24,24 @@ func New() *Plugin {
 }
 
 // PluginName returns the plugin name.
-func (p *Plugin) PluginName() string {
+func (p *Plugin) PluginName(context.Context) string {
 	return "urlrewrite"
 }
 
 // PluginVersion returns the plugin version.
-func (p *Plugin) PluginVersion() string {
+func (p *Plugin) PluginVersion(context.Context) string {
 	return "1.0.0"
 }
 
 // GrantRequests returns a list of grants requested by the plugin.
-func (p *Plugin) GrantRequests() []ambient.GrantRequest {
+func (p *Plugin) GrantRequests(context.Context) []ambient.GrantRequest {
 	return []ambient.GrantRequest{
 		{Grant: ambient.GrantRouterMiddlewareWrite, Description: "Access to redirect to the correct URL if the user request URL doesn't match."},
 	}
 }
 
 // Middleware returns router middleware.
-func (p *Plugin) Middleware() []func(next http.Handler) http.Handler {
+func (p *Plugin) Middleware(context.Context) []func(next http.Handler) http.Handler {
 	return []func(next http.Handler) http.Handler{
 		p.HandlePrefix,
 	}

@@ -27,6 +27,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 
@@ -71,7 +72,8 @@ func main() {
 
 	// Create the ambient app.
 	plugins := app.Plugins()
-	ambientApp, logger, err := ambientapp.NewApp(appName, appVersion,
+	ctx := context.Background()
+	ambientApp, logger, err := ambientapp.NewApp(ctx, appName, appVersion,
 		zaplogger.New(),
 		ambient.StoragePluginGroup{
 			Storage:    storage,
@@ -87,7 +89,7 @@ func main() {
 	// ambientApp.SetLogLevel(ambient.LogLevelDebug)
 
 	// Load the plugins and return the handler.
-	mux, err := ambientApp.Handler()
+	mux, err := ambientApp.Handler(ctx)
 	if err != nil {
 		logger.Fatal(err.Error())
 	}

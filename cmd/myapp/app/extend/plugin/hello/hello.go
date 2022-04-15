@@ -2,6 +2,7 @@
 package hello
 
 import (
+	"context"
 	"embed"
 
 	"github.com/ambientkit/ambient"
@@ -21,12 +22,12 @@ func New() *Plugin {
 }
 
 // PluginName returns the plugin name.
-func (p *Plugin) PluginName() string {
+func (p *Plugin) PluginName(context.Context) string {
 	return "hello"
 }
 
 // PluginVersion returns the plugin version.
-func (p *Plugin) PluginVersion() string {
+func (p *Plugin) PluginVersion(context.Context) string {
 	return "1.0.0"
 }
 
@@ -53,7 +54,7 @@ func (p *Plugin) CustomFunction() string {
 // }
 
 // // Routes sets routes for the plugin.
-// func (p *Plugin) Routes() {
+// func (p *Plugin) Routes(context.Context) {
 // 	p.Mux.Get("/dashboard/hello", p.index)
 // }
 

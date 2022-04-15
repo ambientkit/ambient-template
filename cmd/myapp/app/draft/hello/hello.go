@@ -2,6 +2,7 @@
 package hello
 
 import (
+	"context"
 	"embed"
 	"time"
 
@@ -24,18 +25,18 @@ func New() *Plugin {
 }
 
 // PluginName returns the plugin name.
-func (p *Plugin) PluginName() string {
+func (p *Plugin) PluginName(context.Context) string {
 	return "hello"
 }
 
 // PluginVersion returns the plugin version.
-func (p *Plugin) PluginVersion() string {
+func (p *Plugin) PluginVersion(context.Context) string {
 	return "1.0.0"
 }
 
 // Enable accepts the toolkit.
-func (p *Plugin) Enable(toolkit *ambient.Toolkit) error {
-	err := p.PluginBase.Enable(toolkit)
+func (p *Plugin) Enable(ctx context.Context, toolkit *ambient.Toolkit) error {
+	err := p.PluginBase.Enable(ctx, toolkit)
 	if err != nil {
 		return err
 	}
@@ -45,13 +46,13 @@ func (p *Plugin) Enable(toolkit *ambient.Toolkit) error {
 }
 
 // Disable the plugin background tasks.
-func (p *Plugin) Disable() error {
+func (p *Plugin) Disable(context.Context) error {
 	stopBackgroundTask()
 	return nil
 }
 
 // Routes sets routes for the plugin.
-func (p *Plugin) Routes() {
+func (p *Plugin) Routes(context.Context) {
 	p.Mux.Get("/dashboard/hello", p.index)
 }
 
